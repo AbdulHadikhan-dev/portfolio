@@ -39,7 +39,7 @@ const Page = () => {
     // axios.get("/api/review").then((response) => setReview(response.data));
 
     axios.get("/api/getData").then((response) => {
-      console.log(response.data);
+      // console.log(response.data);
       // let sliceValue = response.data.average.slice(0,2);
       // console.log(sliceValue);
       setOverall({

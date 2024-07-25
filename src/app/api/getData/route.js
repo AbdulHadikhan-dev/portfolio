@@ -26,9 +26,9 @@ export async function GET() {
     let sum = convertintoNum.reduce((accumater, current) => {
       return accumater + current;
     }, 0);
-    console.log(sum);
-    console.log(totalDoc);
-    console.log(convertintoNum);
+    // console.log(sum);
+    // console.log(totalDoc);
+    // console.log(convertintoNum);
 
     const average = () => {
       if (convertintoNum.length > 0) {
