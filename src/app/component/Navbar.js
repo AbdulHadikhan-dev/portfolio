@@ -11,10 +11,10 @@ import { GrNetwork } from "react-icons/gr";
 import { MdOutlineReviews } from "react-icons/md";
 
 const Navbar = () => {
-  // window.onscroll = function () {
-  //   checkNavbar();
-  //   // console.log("hello world!");
-  // };
+  window.onscroll = function () {
+    checkNavbar();
+    // console.log("hello world!");
+  };
 
   const [width, setWidth] = useState("w-0");
   const navbar = useRef(null);

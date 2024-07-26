@@ -42,7 +42,7 @@ const Page = () => {
 
   useEffect(() => {
     // Fetch the latest review data from your server here
-    // axios.get("/api/review").then((response) => setReview(response.data));
+    axios.get("/api/review").then((response) => setReview(response.data));
 
     // axios.get("/api/getData").then((response) => {
     //   // console.log(response.data);
