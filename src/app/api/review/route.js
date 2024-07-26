@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { MongoClient } from "mongodb";
 // import Review from "./model/review";
 
-export async function GET(request) {
+export async function GET() {
   const uri = "mongodb://localhost:27017/";
   const client = new MongoClient(uri);
   try {
