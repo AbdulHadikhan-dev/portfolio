@@ -44,19 +44,19 @@ const Page = () => {
     // Fetch the latest review data from your server here
     // axios.get("/api/review").then((response) => setReview(response.data));
 
-    axios.get("/api/getData").then((response) => {
-      // console.log(response.data);
-      let value = response.data.average;
-      let convetintoString = value.toString();
-      let sliceValue = convetintoString.slice(0, 3);
-      let convertintoNum = parseFloat(sliceValue);
-      // console.log(sliceValue, convetintoString, typeof convertintoNum);
-      setOverall({
-        average: convertintoNum,
-        count: response.data.count,
-      });
-      // console.log(overall);
-    });
+    // axios.get("/api/getData").then((response) => {
+    //   // console.log(response.data);
+    //   let value = response.data.average;
+    //   let convetintoString = value.toString();
+    //   let sliceValue = convetintoString.slice(0, 3);
+    //   let convertintoNum = parseFloat(sliceValue);
+    //   // console.log(sliceValue, convetintoString, typeof convertintoNum);
+    //   setOverall({
+    //     average: convertintoNum,
+    //     count: response.data.count,
+    //   });
+    //   // console.log(overall);
+    // });
 
     axios.get("/api/review").then((response) => {
       setReview(response.data);
@@ -115,7 +115,7 @@ const Page = () => {
   // }
 
   // console.log(overallRate1.current.value);
-  
+
   const handleChangeImage = (e) => {
     // Handle the image upload and validation here
     if (e.target.files && e.target.files.length) {
