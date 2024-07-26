@@ -81,9 +81,8 @@ export async function POST(request) {
     let inventory = database.collection("inventory");
     let insertData = await inventory.insertOne(body);
     // await client.db("admin").command({ ping: 1 });
-    console.log(body);
+    // console.log(body);
     return NextResponse.json({
-      insertData,
       ok: true,
       msg: "thanks for review",
     });
