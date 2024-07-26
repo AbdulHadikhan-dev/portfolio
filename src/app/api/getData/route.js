@@ -38,7 +38,7 @@ export async function GET() {
       }
     };
 
-    console.log(average());
+    // console.log(average());
     return NextResponse.json({
       average: average(),
       count,

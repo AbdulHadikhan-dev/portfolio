@@ -25,6 +25,12 @@ const Page = () => {
   const star4 = useRef();
   const star5 = useRef();
 
+  const overallRate1 = useRef(null);
+  const overallRate2 = useRef(null);
+  const overallRate3 = useRef(null);
+  const overallRate4 = useRef(null);
+  const overallRate5 = useRef(null);
+
   const showReviews = useRef();
   const [overall, setOverall] = useState({
     average: 0,
@@ -40,10 +46,13 @@ const Page = () => {
 
     axios.get("/api/getData").then((response) => {
       // console.log(response.data);
-      // let sliceValue = response.data.average.slice(0,2);
-      // console.log(sliceValue);
+      let value = response.data.average;
+      let convetintoString = value.toString();
+      let sliceValue = convetintoString.slice(0, 3);
+      let convertintoNum = parseFloat(sliceValue);
+      // console.log(sliceValue, convetintoString, typeof convertintoNum);
       setOverall({
-        average: response.data.average,
+        average: convertintoNum,
         count: response.data.count,
       });
       // console.log(overall);
@@ -54,6 +63,59 @@ const Page = () => {
     });
   }, [stars]);
 
+  let variables = false;
+  const Fun = () => {
+    if (parseInt(overallRate1.current.id) <= overall.average) {
+      overallRate1.classList.add("bg-yellow-500");
+      overallRate1.classList.remove("bg-gary-300");
+    } else {
+      return (variables = overallRate1);
+    }
+    if (parseInt(overallRate2.current.id) <= overall.average) {
+      overallRate2.classList.add("bg-yellow-500");
+      overallRate2.classList.remove("bg-gary-300");
+    } else {
+      return (variables = overallRate2);
+    }
+    if (parseInt(overallRate3.current.id) <= overall.average) {
+      overallRate3.classList.add("bg-yellow-500");
+      overallRate3.classList.remove("bg-gary-300");
+    } else {
+      return (variables = overallRate3);
+    }
+    if (parseInt(overallRate4.current.id) <= overall.average) {
+      overallRate4.classList.add("bg-yellow-500");
+      overallRate4.classList.remove("bg-gary-300");
+    } else {
+      return (variables = overallRate4);
+    }
+    if (parseInt(overallRate5.current.id) <= overall.average) {
+      overallRate5.classList.add("bg-yellow-500");
+      overallRate5.classList.remove("bg-gary-300");
+    } else {
+      return (variables = overallRate5);
+    }
+  };
+  // Fun();
+
+  // if (variables) {
+  //   let string = overall.average.toString();
+  //   console.log(string);
+  //   if (string.length > 1) {
+  //     string = string.substring(2, string.length);
+  //     console.log(string);
+  //     // console.log(variables);
+  //     // variables.classList.add("before:bg-yellow-500");
+  //     // variables.classList.add("before:h-full");
+  //     // variables.classList.add(`before:w-${parseInt(string)}0`);
+  //   } else {
+  //     // variables.classList.add("bg-gary-300");
+  //     // variables.classList.remove("bg-yellow-500");
+  //   }
+  // }
+
+  // console.log(overallRate1.current.value);
+  
   const handleChangeImage = (e) => {
     // Handle the image upload and validation here
     if (e.target.files && e.target.files.length) {
@@ -156,7 +218,6 @@ const Page = () => {
   };
 
   const showReview = () => {
-    let toogle = document.querySelector(".toogle");
     if (showReviews.current.classList.contains("h-[800px]")) {
       showReviews.current.classList.add("h-fit");
       showReviews.current.classList.remove("h-[800px]");
@@ -239,25 +300,45 @@ const Page = () => {
           </span>
         </div>
       )}
-      <div className="overall flex flex-col justify-center items-center my-40 gap-4">
+      {/*<div className="overall flex flex-col justify-center items-center my-40 gap-4">
         <div className="text-gray-600 text-xl text-semibold">
           Overall Rating
         </div>
         <div
-          className="text-[80px] font-medium max-mobile:text-6xl"
+          className="text-[90px] font-medium max-mobile:text-6xl"
           id="rating"
         >
           {overall.average}
         </div>
         <div className="flex gap-6 max-mobile:gap-4">
-          <span className="star h-16 w-16 bg-gray-300 max-mobile:h-12 max-mobile:w-12"></span>
-          <span className="star h-16 w-16 bg-gray-300 max-mobile:h-12 max-mobile:w-12"></span>
-          <span className="star h-16 w-16 bg-gray-300 max-mobile:h-12 max-mobile:w-12"></span>
-          <span className="star h-16 w-16 bg-gray-300 max-mobile:h-12 max-mobile:w-12"></span>
-          <span className="star h-16 w-16 bg-gray-300 max-mobile:h-12 max-mobile:w-12"></span>
+          <span
+            className="star overall-review-star h-16 w-16 bg-gray-300 max-mobile:h-12 max-mobile:w-12"
+            value="1"
+            ref={overallRate1}
+          ></span>
+          <span
+            className="star overall-review-star h-16 w-16 bg-gray-300 max-mobile:h-12 max-mobile:w-12"
+            value="2"
+            ref={overallRate2}
+          ></span>
+          <span
+            className="star overall-review-star h-16 w-16 bg-gray-300 max-mobile:h-12 max-mobile:w-12"
+            value="3"
+            ref={overallRate3}
+          ></span>
+          <span
+            className="star overall-review-star h-16 w-16 bg-gray-300 max-mobile:h-12 max-mobile:w-12"
+            value="4"
+            ref={overallRate4}
+          ></span>
+          <span
+            className="star overall-review-star h-16 w-16 bg-gray-300 max-mobile:h-12 max-mobile:w-12"
+            value="5"
+            ref={overallRate5}
+          ></span>
         </div>
         <div className="text-gray-600">{`based on ${overall.count} reviews`}</div>
-      </div>
+      </div>*/}
       <div className="feedback-form flex flex-col gap-6 items-center my-44">
         <div className="heading flex gap-2 text-5xl items-center font-semibold text-blue-600 max-mobile:text-4xl ">
           <MdOutlineFeedback />
