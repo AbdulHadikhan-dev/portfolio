@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { SlMenu } from "react-icons/sl";
 import Sidebar from "./Sidebar";
@@ -11,11 +11,12 @@ import { GrNetwork } from "react-icons/gr";
 import { MdOutlineReviews } from "react-icons/md";
 
 const Navbar = () => {
-  window.onscroll = function () {
-    checkNavbar();
-    // console.log("hello world!");
-  };
-
+  useEffect(() => {
+    window.onscroll = function () {
+      checkNavbar();
+      // console.log("hello world!");
+    };
+  });
   const [width, setWidth] = useState("w-0");
   const navbar = useRef(null);
   const showsidebar = () => {
