@@ -64,7 +64,7 @@ export async function POST(request) {
     });
   }
 
-  const uri = "mongodb://localhost:27017/";
+  const uri = process.env.MONGO_URI;
   // await mongoose.connect("mongodb://localhost:27017/");
 
   // Create a new document with the specified data.
@@ -72,14 +72,20 @@ export async function POST(request) {
   // await review.save();
   // return NextResponse.json({ review, ok: true });
   // Create a MongoClient with a MongoClientOptions object to set the Stable API version
-  const client = new MongoClient(uri);
+  const client = new MongoClient(uri, {
+    serverApi: {
+      version: ServerApiVersion.v1,
+      strict: true,
+      deprecationErrors: true,
+    },
+  });
   try {
     // Connect the client to the server (optional starting in v4.7)/
-    // await client.connect();
+    await client.connect();
     // Send a ping to confirm a successful connection.
     let database = client.db("hadi");
     let inventory = database.collection("inventory");
-    let insertData = await inventory.insertOne(body);
+    await inventory.insertOne(body);
     // await client.db("admin").command({ ping: 1 });
     // console.log(body);
     return NextResponse.json({
