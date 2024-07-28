@@ -12,7 +12,7 @@ import MONGODB from "@/app/assets/mongodb-icon-1.svg";
 import REACT from "@/app/assets/react1.svg";
 import express from "@/app/assets/express.webp";
 import NEXT from "@/app/assets/next.png";
-import Skillname from "../component/Skillcard";
+import Skillname from "../components/Skillcard";
 
 const page = () => {
   return (

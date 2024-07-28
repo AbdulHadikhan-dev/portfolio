@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
 import { MdOutlineArrowOutward } from "react-icons/md";
-import Card from "./component/Card";
+import Card from "./components/Card";
 import { LuSearchCheck } from "react-icons/lu";
 import { FaCode } from "react-icons/fa6";
 import { FaNodeJs } from "react-icons/fa6";
@@ -10,6 +10,7 @@ import authorImage from "@/app/assets/image.jpg";
 import Link from "next/link";
 import Typed from "typed.js";
 import person from '@/app/assets/1.png';
+import ai from '@/app/assets/file.png';
 
 
 export default function Home() {
@@ -54,10 +55,10 @@ export default function Home() {
             </Link>
           </div>
         </div>
-        <div className="right-section w-[50%] flex justify-center max-mobile:w-full items-start">
+        <div className="right-section w-[50%] flex justify-center max-mobile:w-full items-end">
           {/* <div className="rounded-xl h-[36rem] w-[22rem] overflow-hidden relative max-pc:h-[34rem] max-pc:w-[20rem] max-laptop:h-[30rem] max-laptop:w-[18rem] max-mini:w-[14rem] max-mini:h-[28rem]"> */}
             <Image
-              src={person}
+              src={ai}
               alt="Picture of the author"
               width={480}
               height={480}
