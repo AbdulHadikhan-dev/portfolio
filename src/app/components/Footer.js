@@ -8,7 +8,7 @@ import { FaSquareInstagram } from "react-icons/fa6";
 
 const Footer = () => {
   return (
-    <footer className="mt-10 p-4 bg-slate-200 max-mobile:p-4">
+    <footer className="p-4 bg-slate-200 max-mobile:p-4">
       {/* <hr className="mx-10 my-6" /> */}
       <div className="container flex justify-between items-center mx-10 min-w-[95%] max-mobile:mx-0">
         <div className="left-section ml-4 max-mobile:text-[12px] max-mobile:ml-0">&copy; 2024, All right reseved</div>

@@ -9,9 +9,9 @@ import Image from "next/image";
 import authorImage from "@/app/assets/image.jpg";
 import Link from "next/link";
 import Typed from "typed.js";
-import person from '@/app/assets/1.png';
-import ai from '@/app/assets/file.png';
-
+import person from "@/app/assets/1.png";
+import ai from "@/app/assets/file.png";
+import { IoDocumentTextOutline } from "react-icons/io5";
 
 export default function Home() {
   // const [mode, setMode] = useState("light");
@@ -48,23 +48,26 @@ export default function Home() {
                 <MdOutlineArrowOutward className="h-6 w-6" />
               </button>
             </Link>
-            <Link href={"/Services"}>
-              <button className="text-black border border-1 border-gray-500 rounded-3xl py-2 px-4 max-mini:py-1 max-mini:px-3">
-                Our Services
-              </button>
-            </Link>
+            <a
+              href="src\app\assets\resume.pdf"
+              className="text-black border border-1 border-gray-500 rounded-3xl py-2 px-4 max-mini:py-1 max-mini:px-3 flex items-center gap-2"
+              download="Hadi_Resume.pdf"
+            >
+              <IoDocumentTextOutline className="scale-150" />
+              Download CV
+            </a>
           </div>
         </div>
         <div className="right-section w-[50%] flex justify-center max-mobile:w-full items-end">
           {/* <div className="rounded-xl h-[36rem] w-[22rem] overflow-hidden relative max-pc:h-[34rem] max-pc:w-[20rem] max-laptop:h-[30rem] max-laptop:w-[18rem] max-mini:w-[14rem] max-mini:h-[28rem]"> */}
-            <Image
-              src={ai}
-              alt="Picture of the author"
-              width={480}
-              height={480}
-              // className="max-ipad:h-[400px] max-ipad:w-[250px]"
-              // priority
-            />
+          <Image
+            src={ai}
+            alt="Picture of the author"
+            width={480}
+            height={480}
+            // className="max-ipad:h-[400px] max-ipad:w-[250px]"
+            // priority
+          />
           {/* </div> */}
         </div>
       </div>

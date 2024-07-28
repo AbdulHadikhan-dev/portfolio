@@ -9,6 +9,7 @@ import { LuUser2 } from "react-icons/lu";
 import { FaCode } from "react-icons/fa6";
 import { GrNetwork } from "react-icons/gr";
 import { MdOutlineReviews } from "react-icons/md";
+import { GrDocumentText } from "react-icons/gr";
 
 const Navbar = () => {
   useEffect(() => {
@@ -45,7 +46,7 @@ const Navbar = () => {
   return (
     <>
       <nav
-        className="w-full flex justify-between px-10 py-4 items-center max-mobile:px-6 top-0 z-20 bg-blue-50"
+        className="w-full flex justify-between px-10 py-4 items-center max-mobile:px-6 top-0 z-20 bg-blue-50 duration-500"
         ref={navbar}
       >
         <div className="text-3xl font-semibold text-blue-600 max-mobile:text-2xl max-ipad:text-2xl max-mini:text-[22px]">{`Hadi's portfolio`}</div>
@@ -87,8 +88,17 @@ const Navbar = () => {
             </Link>
             <div className="w-0 h-1 bg-blue-600 origin-left duration-500"></div>
           </div>
+          <div className="flex flex-col justify-center navigation">
+            <Link href={"/Resume"}>
+              <span className="cursor-pointer flex gap-2 items-center">
+                <GrDocumentText className="scale-110" />
+                Resume
+              </span>
+            </Link>
+            <div className="w-0 h-1 bg-blue-600 origin-left duration-500"></div>
+          </div>
           <Link href={"/Review"}>
-            <div className="Review border border-1 border-blue-600 text-blue-600 rounded-3xl mx-4 px-4 py-[2px] cursor-pointer flex gap-2 items-center hover:bg-blue-600 hover:text-white duration-300 max-mobile:hidden max-ipad:text-[15px] max-mini:text-[12px] font-[400] text-[16px] max-mini:py-0 max-mini:px-3">
+            <div className="Review border border-1 border-blue-600 text-blue-600 rounded-3xl px-4 py-[2px] cursor-pointer flex gap-2 items-center hover:bg-blue-600 hover:text-white duration-300 max-mobile:hidden max-ipad:text-[15px] max-mini:text-[12px] font-[400] text-[16px] max-mini:py-0 max-mini:px-3">
               <span>Review</span>
               <MdOutlineReviews className="scale-125" />
             </div>
