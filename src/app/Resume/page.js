@@ -12,7 +12,7 @@ const Page = () => {
         <a
           href="src\app\assets\resume.pdf"
           className="text-4xl text-white flex gap-2 bg-blue-600 hover:bg-blue-700 items-center p-4 max-mobile:text-lg max-mobile:p-2"
-          download="Hadi Resume.pdf"
+          download
         >
           <TbDownload className="h-8 w-8 max-mobile:h-5 max-mobile:w-5" />
           <span className="text-xl max-mobile:text-lg text-white">
@@ -25,7 +25,7 @@ const Page = () => {
         <a
           href="src\app\assets\resume.pdf"
           className="text-4xl text-white flex gap-2 bg-blue-600 hover:bg-blue-700 items-center p-4 max-mobile:text-lg max-mobile:p-2"
-          download="Hadi Resume.pdf"
+          download
         >
           <TbDownload className="h-8 w-8 max-mobile:h-5 max-mobile:w-5" />
           <span className="text-xl max-mobile:text-lg text-white">

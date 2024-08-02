@@ -12,7 +12,8 @@ export async function GET() {
     },
   });
   try {
-    let database = client.db("hadi");
+    // await client.connect();
+    let database = client.db("hadi").command({ ping: 1 });
     let inventory = database.collection("inventory");
     let data = await inventory.find().toArray();
     return NextResponse.json(data);
@@ -88,7 +89,7 @@ export async function POST(request) {
   });
   try {
     // Connect the client to the server (optional starting in v4.7)/
-    await client.connect();
+    // await client.connect();
     // Send a ping to confirm a successful connection.
     let database = client.db("hadi");
     let inventory = database.collection("inventory");

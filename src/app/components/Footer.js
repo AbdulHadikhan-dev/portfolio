@@ -18,7 +18,7 @@ const Footer = () => {
           &copy; 2024, All right reseved
         </div>
         <div className="right-section flex justify-end gap-6 items-center mr-14 text-slate-700 max-mobile:mr-0 max-mobile:gap-2">
-          <Link href={"https://www.linkedin.com/in/abdul-hadi-205194317/"}>
+          <Link href={"www.linkedin.com/in/abdul-hadi-205194317"}>
             <FaLinkedin className="h-6 w-6 hover:text-blue cursor-pointer hover:scale-110 duration-200 max-mobile:scale-75" />
           </Link>
           <Link href={"https://www.tiktok.com/@hadi_khan_offical_?_t=8oOt3IKNVfM&_r=1"}>
