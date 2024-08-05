@@ -19,7 +19,7 @@ const Sidebar = ({ prop, setWidth }) => {
       >
         <RxCross1 className="scale-[2]" />
       </div>
-      <div className="links flex flex-col items-center justify-center gap-16 text-2xl font-semibold mt-36">
+      <div className="links flex flex-col items-center justify-center gap-16 text-2xl font-semibold mt-40">
         <Link href={"/"} onClick={() => setWidth("w-0")} className="flex gap-2 items-center">
         <AiOutlineHome className="scale-125" />
           Home
@@ -36,10 +36,10 @@ const Sidebar = ({ prop, setWidth }) => {
         <FaCode className="scale-125"/>
           Skill
         </Link>
-        <Link href={"/Review"} onClick={() => setWidth("w-0")} className="flex gap-2 items-center">
+        {/* <Link href={"/Review"} onClick={() => setWidth("w-0")} className="flex gap-2 items-center">
         <MdOutlineReviews className="scale-125"/>
           Review
-        </Link>
+        </Link> */}
       </div>
     </div>
   );

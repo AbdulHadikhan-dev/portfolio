@@ -43,7 +43,7 @@ const Page = () => {
           </div>
           <div className="btn flex gap-4 max-mobile:gap-2">
             <Link href={"/Services"} className="cursor-pointer">
-              <button className="rounded-[40px] px-4 py-2 bg-blue-600 text-white text-sm cursor-pointer max-mobile:px-3 max-mobile:py-1 max-mobile:text-[12px] max-ipad:text-[12px] max-ipad:px-3  max-ipad:py-[4px] max-mini:text-[10px]">
+              <button className="rounded-[40px] px-4 py-2 bg-blue-600 text-white text-sm cursor-pointer max-mobile:px-3 max-mobile:py-1 max-mobile:text-[12px] max-ipad:text-[12px] max-ipad:px-3  max-ipad:py-[4px] max-mini:text-[10px] border border-blue-600">
                 Our Services
               </button>
             </Link>
