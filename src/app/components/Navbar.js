@@ -107,7 +107,6 @@ const Navbar = () => {
         <div className="side-menu mobile:hidden" onClick={showsidebar}>
           <SlMenu className="h-8 w-8" />
         </div>
-        {/* </div> */}
       </nav>
       <Sidebar prop={width} setWidth={setWidth} />
     </>
