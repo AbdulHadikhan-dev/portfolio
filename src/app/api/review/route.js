@@ -1,22 +1,19 @@
 import { NextResponse } from "next/server";
-import { MongoClient, ServerApiVersion } from "mongodb";
+import { MongoClient } from "mongodb";
 // import Review from "./model/review";
+
+console.log(process.env.MONGO_URI);
 
 export async function GET() {
   const uri = process.env.MONGO_URI;
-  const client = new MongoClient(uri, {
-    serverApi: {
-      version: ServerApiVersion.v1,
-      strict: true,
-      deprecationErrors: true,
-    },
-  });
+  const client = new MongoClient(uri);
   try {
-    // await client.connect();
-    let database = client.db("hadi").command({ ping: 1 });
+    await client.connect();
+    let database = client.db("hadi");
     let inventory = database.collection("inventory");
     let data = await inventory.find().toArray();
     return NextResponse.json(data);
+    // return NextResponse.json(process.env.MONGO_URI);
   } finally {
     client.close();
   }
@@ -80,16 +77,10 @@ export async function POST(request) {
   // await review.save();
   // return NextResponse.json({ review, ok: true });
   // Create a MongoClient with a MongoClientOptions object to set the Stable API version
-  const client = new MongoClient(uri, {
-    serverApi: {
-      version: ServerApiVersion.v1,
-      strict: true,
-      deprecationErrors: true,
-    },
-  });
+  const client = new MongoClient(uri);
   try {
     // Connect the client to the server (optional starting in v4.7)/
-    // await client.connect();
+    await client.connect();
     // Send a ping to confirm a successful connection.
     let database = client.db("hadi");
     let inventory = database.collection("inventory");

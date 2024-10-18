@@ -1,15 +1,13 @@
 "use client";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { MdOutlineArrowOutward } from "react-icons/md";
 import Card from "./components/Card";
 import { LuSearchCheck } from "react-icons/lu";
 import { FaCode } from "react-icons/fa6";
 import { FaNodeJs } from "react-icons/fa6";
 import Image from "next/image";
-import authorImage from "@/app/assets/image.jpg";
 import Link from "next/link";
 import Typed from "typed.js";
-import person from "@/app/assets/1.png";
 import ai from "@/app/assets/file.png";
 import { IoDocumentTextOutline } from "react-icons/io5";
 
@@ -48,7 +46,7 @@ export default function Home() {
                 <MdOutlineArrowOutward className="h-6 w-6" />
               </button>
             </Link>
-            <a href="src\app\assets\resume.pdf" download>
+            <a href="src\app\assets\resume.pdf" download="hadi Resuma.pdf">
               <button className="text-black border border-1 border-gray-500 rounded-3xl py-2 px-4 max-mini:py-1 max-mini:px-3 flex items-center gap-2">
                 <IoDocumentTextOutline className="scale-150" />
                 Download CV

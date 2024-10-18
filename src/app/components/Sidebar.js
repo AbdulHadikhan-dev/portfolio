@@ -36,10 +36,10 @@ const Sidebar = ({ prop, setWidth }) => {
         <FaCode className="scale-125"/>
           Skill
         </Link>
-        {/* <Link href={"/Review"} onClick={() => setWidth("w-0")} className="flex gap-2 items-center">
+        <Link href={"/Review"} onClick={() => setWidth("w-0")} className="flex gap-2 items-center">
         <MdOutlineReviews className="scale-125"/>
           Review
-        </Link> */}
+        </Link>
       </div>
     </div>
   );
