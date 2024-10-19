@@ -98,7 +98,7 @@ const Navbar = () => {
             <div className="w-0 h-1 bg-blue-600 origin-left duration-500"></div>
           </div>
           <Link href={"/Review"}>
-            <div className="Review border border-1 border-blue-600 text-blue-600 rounded-3xl px-4 py-[2px] cursor-pointer flex gap-2 items-center hover:bg-blue-600 hover:text-white duration-300 max-mobile:hidden max-ipad:text-[15px] max-mini:text-[12px] font-[400] text-[16px] max-mini:py-0 max-mini:px-3">
+            <div className="Review scale-105 border border-1 border-blue-600 text-blue-600 rounded-3xl px-4 py-[2px] cursor-pointer flex gap-2 items-center hover:bg-blue-600 hover:text-white duration-300 max-mobile:hidden max-ipad:text-[15px] max-mini:text-[12px] font-[400] text-[16px] max-mini:py-0 max-mini:px-3">
               <span>Review</span>
               <MdOutlineReviews className="scale-125" />
             </div>

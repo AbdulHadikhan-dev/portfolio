@@ -10,7 +10,7 @@ const Page = () => {
     <div className="main flex flex-col items-center py-32 h-fit w-full bg-blue-50 gap-16">
       <div className="download">
         <a
-          href="src\app\assets\resume.pdf"
+          href="resume.pdf"
           className="text-4xl text-white flex gap-2 bg-blue-600 hover:bg-blue-700 items-center p-4 max-mobile:text-lg max-mobile:p-2"
           download
         >
@@ -23,7 +23,7 @@ const Page = () => {
       <Image src={resume} alt="resume" height={1100} width={1100} />
       <div className="download">
         <a
-          href="src\app\assets\resume.pdf"
+          href="resume.pdf"
           className="text-4xl text-white flex gap-2 bg-blue-600 hover:bg-blue-700 items-center p-4 max-mobile:text-lg max-mobile:p-2"
           download
         >

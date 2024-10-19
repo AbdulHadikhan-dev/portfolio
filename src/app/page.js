@@ -46,7 +46,7 @@ export default function Home() {
                 <MdOutlineArrowOutward className="h-6 w-6" />
               </button>
             </Link>
-            <a href="src\app\assets\resume.pdf" download="hadi Resuma.pdf">
+            <a href="resume.pdf" download>
               <button className="text-black border border-1 border-gray-500 rounded-3xl py-2 px-4 max-mini:py-1 max-mini:px-3 flex items-center gap-2">
                 <IoDocumentTextOutline className="scale-150" />
                 Download CV
