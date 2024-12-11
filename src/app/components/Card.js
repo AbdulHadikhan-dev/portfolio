@@ -1,5 +1,6 @@
 import React from "react";
 import { FaArrowRightLong } from "react-icons/fa6";
+import { Button } from "@/components/ui/button"
 
 const Card = ({ logo, title, desc }) => {
   return (
@@ -7,10 +8,10 @@ const Card = ({ logo, title, desc }) => {
       <div className="logo mx-4 text-blue-600 max-ipad:mx-0">{logo}</div>
       <div className="title text-3xl mx-8 font-bold text-blue-600 max-ipad:text-2xl max-ipad:mx-4 max-laptop:mx-4 max-mini:mx-2 max-mini:text-[22px] max-mobile:mx-4">{title}</div>
       <div className="desc text-slate-600 mx-8 max-ipad:text-sm max-ipad:mx-4 max-laptop:mx-4 max-mini:mx-2 max-mini:text-[12px] max-mobile:mx-4">{desc}</div>
-      <button className="btn w-fit mx-9 flex gap-2 items-center max-ipad:mx-5 max-laptop:mx-5 max-mini:mx-3 max-mobile:mx-4">
+      <Button className="btn w-fit mx-5 flex gap-2 items-center max-ipad:mx-3 max-laptop:mx-3 max-mini:mx-2 max-mobile:mx-2 bg-transparent text-blue-600 shadow-none hover:shadow hover:bg-transparent">
         Know more
         <FaArrowRightLong className="" />
-      </button>
+      </Button>
     </div>
   );
 };

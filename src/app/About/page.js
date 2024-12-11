@@ -4,6 +4,7 @@ import React from "react";
 import image1 from "@/app/assets/aboutimage.jpg";
 import Link from "next/link";
 import image2 from '@/app/assets/3.jpg';
+import { Button } from "@/components/ui/button"
 
 
 const Page = () => {
@@ -43,14 +44,14 @@ const Page = () => {
           </div>
           <div className="btn flex gap-4 max-mobile:gap-2">
             <Link href={"/Services"} className="cursor-pointer">
-              <button className="rounded-[40px] px-4 py-2 bg-blue-600 text-white text-sm cursor-pointer max-mobile:px-3 max-mobile:py-1 max-mobile:text-[12px] max-ipad:text-[12px] max-ipad:px-3  max-ipad:py-[4px] max-mini:text-[10px] border border-blue-600">
+              <Button className="bg-blue-600 hover:bg-blue-700">
                 Our Services
-              </button>
+              </Button>
             </Link>
             <Link href={"https://en.wikipedia.org/wiki/Web_development"} className="cursor-pointer">
-              <button className="rounded-[40px] px-4 py-2 border border-gray-600 font-medium text-sm cursor-pointer max-mobile:px-3 max-mobile:py-1 max-mobile:text-[12px] max-ipad:text-[12px] max-ipad:px-3 max-ipad:py-[2px] max-mini:text-[10px]">
+              <Button  variant="outline">
                 Learn more
-              </button>
+              </Button>
             </Link>
           </div>
         </div>

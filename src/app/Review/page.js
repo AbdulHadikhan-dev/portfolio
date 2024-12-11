@@ -7,6 +7,7 @@ import { FaUserCircle } from "react-icons/fa";
 // import { MdOutlineArrowBackIosNew } from "react-icons/md";
 
 import axios from "axios";
+import { Button } from "@/components/ui/button";
 
 const Page = () => {
   const [form, setForm] = useState({
@@ -47,19 +48,6 @@ const Page = () => {
       console.log(response.data);
       setReview(response.data);
     });
-    // axios.get("/api/getData").then((response) => {
-    //   // console.log(response.data);
-    //   let value = response.data.average;
-    //   let convetintoString = value.toString();
-    //   let sliceValue = convetintoString.slice(0, 3);
-    //   let convertintoNum = parseFloat(sliceValue);
-    //   // console.log(sliceValue, convetintoString, typeof convertintoNum);
-    //   setOverall({
-    //     average: convertintoNum,
-    //     count: response.data.count,
-    //   });
-    //   // console.log(overall);
-    // });
   }, [stars]);
 
   let variables = false;
@@ -467,12 +455,12 @@ const Page = () => {
           <div className="flex gap-1 items-center text-red-500 text-center">
             {error.error === "rate" && error.message}
           </div>
-          <button
-            className="p-3 rounded-sm bg-blue-500 text-white text-xl hover:bg-blue-600 duration-100"
+          <Button
+            className="bg-blue-500 laptop:py-6 laptop:text-xl hover:bg-blue-600 duration-100"
             onClick={handleSubmit}
           >
             Submit
-          </button>
+          </Button>
         </div>
       </div>
     </div>

@@ -3,7 +3,7 @@ import React from "react";
 import resume from "@/app/assets/resume.jpg";
 import Image from "next/image";
 import { TbDownload } from "react-icons/tb";
-import Link from "next/link";
+import { Button } from "@/components/ui/button"
 
 const Page = () => {
   return (

@@ -10,6 +10,7 @@ import Link from "next/link";
 import Typed from "typed.js";
 import ai from "@/app/assets/file.png";
 import { IoDocumentTextOutline } from "react-icons/io5";
+import { Button } from "@/components/ui/button"
 
 export default function Home() {
   // const [mode, setMode] = useState("light");
@@ -41,16 +42,16 @@ export default function Home() {
           </div>
           <div className="flex gap-4 text-white mx-32 font-semibold text-sm my-12 max-laptop:mx-16 max-mobile:mx-8 max-mobile:my-8 max-mobile:text-[13px] max-ipad:text-[13px] max-mini:my-10 max-mini:mx-12 max-mobile:justify-center">
             <Link href={"/About"}>
-              <button className="bg-blue-600 rounded-3xl py-2 px-4 flex justify-center items-center max-mini:py-1 max-mini:px-3">
+              <Button className='bg-blue-600 hover:bg-blue-700'>
                 About me
                 <MdOutlineArrowOutward className="h-6 w-6" />
-              </button>
+              </Button>
             </Link>
             <a href="resume.pdf" download>
-              <button className="text-black border border-1 border-gray-500 rounded-3xl py-2 px-4 max-mini:py-1 max-mini:px-3 flex items-center gap-2">
+              <Button  variant="outline" className="text-black">
                 <IoDocumentTextOutline className="scale-150" />
                 Download CV
-              </button>
+              </Button>
             </a>
           </div>
         </div>
