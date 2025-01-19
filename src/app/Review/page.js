@@ -5,6 +5,8 @@ import { IoMdAttach } from "react-icons/io";
 import { RxCross2 } from "react-icons/rx";
 import { FaUserCircle } from "react-icons/fa";
 // import { MdOutlineArrowBackIosNew } from "react-icons/md";
+import Rating from "@mui/material/Rating";
+import Stack from "@mui/material/Stack";
 
 import axios from "axios";
 import { Button } from "@/components/ui/button";
@@ -19,12 +21,6 @@ const Page = () => {
   });
 
   const [stars, setStars] = useState([1, 2, 3, 4, 5]);
-
-  const star1 = useRef();
-  const star2 = useRef();
-  const star3 = useRef();
-  const star4 = useRef();
-  const star5 = useRef();
 
   const overallRate1 = useRef(null);
   const overallRate2 = useRef(null);
@@ -125,51 +121,6 @@ const Page = () => {
     setForm({ ...form, image: "" });
   };
 
-  const handleRating = (e) => {
-    setForm({ ...form, rate: e.target.id }); //
-    if (form.rate >= star1.current.id) {
-      star1.current.classList.add("bg-yellow-500");
-      star1.current.classList.remove("bg-gray-300");
-    } else {
-      star1.current.classList.remove("bg-yellow-500");
-      star1.current.classList.add("bg-gray-300");
-    }
-
-    if (form.rate >= star2.current.id) {
-      star2.current.classList.add("bg-yellow-500");
-      star2.current.classList.remove("bg-gray-300");
-    } else {
-      star2.current.classList.remove("bg-yellow-500");
-      star2.current.classList.add("bg-gray-300");
-    }
-
-    if (form.rate >= star3.current.id) {
-      star3.current.classList.add("bg-yellow-500");
-      star3.current.classList.remove("bg-gray-300");
-    } else {
-      star3.current.classList.remove("bg-yellow-500");
-      star3.current.classList.add("bg-gray-300");
-    }
-
-    if (form.rate >= star4.current.id) {
-      star4.current.classList.add("bg-yellow-500");
-      star4.current.classList.remove("bg-gray-300");
-    } else {
-      star4.current.classList.remove("bg-yellow-500");
-      star4.current.classList.add("bg-gray-300");
-    }
-
-    if (form.rate >= star5.current.id) {
-      star5.current.classList.add("bg-yellow-500");
-      star5.current.classList.remove("bg-gray-300");
-    } else {
-      star5.current.classList.remove("bg-yellow-500");
-      star5.current.classList.add("bg-gray-300");
-    }
-
-    console.log(e.target.id);
-  };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     // Handle form submission here
@@ -186,16 +137,6 @@ const Page = () => {
         image: "",
         rate: null,
       });
-      star1.current.classList.remove("bg-yellow-500");
-      star1.current.classList.add("bg-gray-300");
-      star2.current.classList.remove("bg-yellow-500");
-      star2.current.classList.add("bg-gray-300");
-      star3.current.classList.remove("bg-yellow-500");
-      star3.current.classList.add("bg-gray-300");
-      star4.current.classList.remove("bg-yellow-500");
-      star4.current.classList.add("bg-gray-300");
-      star5.current.classList.remove("bg-yellow-500");
-      star5.current.classList.add("bg-gray-300");
     } else {
       setError(response.data);
     }
@@ -237,7 +178,7 @@ const Page = () => {
         ref={showReviews}
       >
         {review.map((item) => {
-          // console.log(item["_id"]);
+          console.log(item);
           return (
             <div
               className="review-box flex flex-col gap-3 rounded-xl p-4 mx-10 w-96 max-mobile:w-full max-mobile:mx-0 max-mobile:p-2 max-mobile:bg-blue-50 max-ipad:w-[40%] max-ipad:mx-0 max-ipad:pl-12 "
@@ -256,20 +197,15 @@ const Page = () => {
                   </span>
                 </div>
               </div>
-              <div className="rate flex gap-3">
-                {stars.map((rate) => {
-                  return (
-                    <span
-                      className={
-                        parseInt(item.rate) < rate
-                          ? `bg-gray-300 h-8 w-8 star max-mobile:h-7 max-mobile:w-7`
-                          : `bg-yellow-500 h-8 w-8 star max-mobile:h-7 max-mobile:w-7`
-                      }
-                      key={rate}
-                    ></span>
-                  );
-                })}
-              </div>
+              <Stack spacing={1}>
+                <Rating
+                  name="half-rating-read"
+                  defaultValue={item.rate}
+                  precision={0.5}
+                  readOnly
+                  size="large"
+                />
+              </Stack>
               <div className="msg text-gray-500 text-lg font-medium max-mini:text-[16px]">
                 {item.message}
               </div>
@@ -419,7 +355,7 @@ const Page = () => {
           </label>
           <div className="rating bg-white flex flex-col gap-4 items-center justify-center py-4">
             <div className="text-4xl">RATE US!</div>
-            <div className="5-star flex gap-4 justify-between max-mobile:gap-3">
+            {/* <div className="5-star flex gap-4 justify-between max-mobile:gap-3">
               <span
                 className="cursor-pointer h-16 w-16 bg-gray-300 star max-mobile:h-12 max-mobile:w-12"
                 onClick={handleRating}
@@ -450,7 +386,24 @@ const Page = () => {
                 ref={star5}
                 id={5}
               ></span>
-            </div>
+            </div> */}
+            <Stack spacing={1}>
+              <Rating
+                name="half-rating"
+                defaultValue={0}
+                precision={0.5}
+                size="large"
+                style={{ scale: "1.5" }}
+                onChange={(e, newValue) => {
+                  console.log(newValue, e.target.value);
+
+                  if (newValue === 0 || !newValue) {
+                    return false;
+                  }
+                  setForm({ ...form, rate: newValue });
+                }}
+              />
+            </Stack>
           </div>
           <div className="flex gap-1 items-center text-red-500 text-center">
             {error.error === "rate" && error.message}
