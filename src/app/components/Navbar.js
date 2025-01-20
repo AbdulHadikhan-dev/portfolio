@@ -51,7 +51,7 @@ const Navbar = () => {
       >
         <div className="text-3xl font-semibold text-blue-600 max-mobile:text-2xl max-ipad:text-2xl max-mini:text-[22px]">{`Hadi's portfolio`}</div>
         {/* <div className="flex gap-4 items-center"> */}
-        <div className="flex justify-between gap-14 font-semibold text-xl items-center max-mobile:hidden max-ipad:text-[16px] max-ipad:gap-8 max-mini:text-[12px] max-mini:gap-4">
+        <div className="flex justify-between gap-12 font-semibold text-xl items-center max-mobile:hidden max-ipad:text-[16px] max-ipad:gap-8 max-mini:text-[12px] max-mini:gap-4">
           <div className="flex flex-col justify-center navigation">
             <Link href={"/"}>
               <span className="cursor-pointer flex gap-2 items-center">
@@ -83,7 +83,7 @@ const Navbar = () => {
             <Link href={"/Skill"}>
               <span className="cursor-pointer flex gap-2 items-center">
                 <FaCode className="scale-125" />
-                Skill
+                Skills
               </span>
             </Link>
             <div className="w-0 h-1 bg-blue-600 origin-left duration-500"></div>

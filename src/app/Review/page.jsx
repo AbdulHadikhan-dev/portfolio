@@ -7,9 +7,10 @@ import { FaUserCircle } from "react-icons/fa";
 // import { MdOutlineArrowBackIosNew } from "react-icons/md";
 import Rating from "@mui/material/Rating";
 import Stack from "@mui/material/Stack";
-
+import { useToast } from "@/hooks/use-toast";
 import axios from "axios";
 import { Button } from "@/components/ui/button";
+import { Toaster } from "@/components/ui/toaster";
 
 const Page = () => {
   const [form, setForm] = useState({
@@ -19,8 +20,9 @@ const Page = () => {
     image: "",
     rate: null,
   });
-
+  const { toast } = useToast();
   const [stars, setStars] = useState([1, 2, 3, 4, 5]);
+  const [value, setValue] = useState(0);
 
   const overallRate1 = useRef(null);
   const overallRate2 = useRef(null);
@@ -79,25 +81,6 @@ const Page = () => {
       return (variables = overallRate5);
     }
   };
-  // Fun();
-
-  // if (variables) {
-  //   let string = overall.average.toString();
-  //   console.log(string);
-  //   if (string.length > 1) {
-  //     string = string.substring(2, string.length);
-  //     console.log(string);
-  //     // console.log(variables);
-  //     // variables.classList.add("before:bg-yellow-500");
-  //     // variables.classList.add("before:h-full");
-  //     // variables.classList.add(`before:w-${parseInt(string)}0`);
-  //   } else {
-  //     // variables.classList.add("bg-gary-300");
-  //     // variables.classList.remove("bg-yellow-500");
-  //   }
-  // }
-
-  // console.log(overallRate1.current.value);
 
   const handleChangeImage = (e) => {
     // Handle the image upload and validation here
@@ -128,7 +111,12 @@ const Page = () => {
     let response = await axios.post("/api/review", form);
     console.log(response.data);
     if (response.data.ok) {
-      alert(response.data.msg);
+      toast({
+        variant: "default",
+        title: response.data.msg,
+        description: "There was a problem with your request.",
+      });
+      setValue(0)
       setError({});
       setForm({
         name: "",
@@ -172,8 +160,8 @@ const Page = () => {
       <div
         className={
           review.length > 9
-            ? `data flex flex-wrap my-10 gap-4 mx-32 gap-x-[7rem] h-[800px] overflow-hidden duration-300 max-mobile:mx-4 max-ipad:mx-0 max-laptop:mx-6`
-            : `data flex flex-wrap my-10 gap-4 mx-32 gap-x-[7rem] h-fit overflow-hidden duration-300 max-mobile:mx-4 max-ipad:mx-0 max-laptop:mx-6`
+            ? `data flex flex-wrap my-10 gap-4 mx-28 gap-x-10 h-[800px] overflow-hidden duration-300 max-mobile:mx-4 max-ipad:mx-8 max-laptop:mx-6 max-ipad:justify-between`
+            : `data flex flex-wrap my-10 gap-4 mx-28 gap-x-10 h-fit overflow-hidden duration-300 max-mobile:mx-4 max-ipad:mx-0 max-laptop:mx-6 max-ipad:justify-between`
         }
         ref={showReviews}
       >
@@ -181,7 +169,7 @@ const Page = () => {
           console.log(item);
           return (
             <div
-              className="review-box flex flex-col gap-3 rounded-xl p-4 mx-10 w-96 max-mobile:w-full max-mobile:mx-0 max-mobile:p-2 max-mobile:bg-blue-50 max-ipad:w-[40%] max-ipad:mx-0 max-ipad:pl-12 "
+              className="review-box flex flex-col gap-3 rounded-xl h-fit p-4 w-96 max-mobile:w-full max-mobile:mx-0 max-mobile:p-2 max-mobile:bg-blue-50 max-ipad:w-[47%] max-laptop:w-[31%] max-ipad:mx-0 bg-blue-50"
               key={item["_id"]}
             >
               <div className="main flex gap-4">
@@ -225,43 +213,43 @@ const Page = () => {
       )}
       {/*<div className="overall flex flex-col justify-center items-center my-40 gap-4">
         <div className="text-gray-600 text-xl text-semibold">
-          Overall Rating
+        Overall Rating
         </div>
         <div
-          className="text-[90px] font-medium max-mobile:text-6xl"
-          id="rating"
+        className="text-[90px] font-medium max-mobile:text-6xl"
+        id="rating"
         >
-          {overall.average}
+        {overall.average}
         </div>
         <div className="flex gap-6 max-mobile:gap-4">
-          <span
-            className="star overall-review-star h-16 w-16 bg-gray-300 max-mobile:h-12 max-mobile:w-12"
-            value="1"
+        <span
+        className="star overall-review-star h-16 w-16 bg-gray-300 max-mobile:h-12 max-mobile:w-12"
+        value="1"
             ref={overallRate1}
           ></span>
           <span
             className="star overall-review-star h-16 w-16 bg-gray-300 max-mobile:h-12 max-mobile:w-12"
             value="2"
             ref={overallRate2}
-          ></span>
-          <span
+            ></span>
+            <span
             className="star overall-review-star h-16 w-16 bg-gray-300 max-mobile:h-12 max-mobile:w-12"
             value="3"
             ref={overallRate3}
-          ></span>
-          <span
+            ></span>
+            <span
             className="star overall-review-star h-16 w-16 bg-gray-300 max-mobile:h-12 max-mobile:w-12"
             value="4"
             ref={overallRate4}
-          ></span>
-          <span
+            ></span>
+            <span
             className="star overall-review-star h-16 w-16 bg-gray-300 max-mobile:h-12 max-mobile:w-12"
             value="5"
             ref={overallRate5}
-          ></span>
-        </div>
-        <div className="text-gray-600">{`based on ${overall.count} reviews`}</div>
-      </div>*/}
+            ></span>
+            </div>
+            <div className="text-gray-600">{`based on ${overall.count} reviews`}</div>
+            </div>*/}
       <div className="feedback-form flex flex-col gap-6 items-center my-44">
         <div className="heading flex gap-2 text-5xl items-center font-semibold text-blue-600 max-mobile:text-4xl ">
           <MdOutlineFeedback />
@@ -355,48 +343,17 @@ const Page = () => {
           </label>
           <div className="rating bg-white flex flex-col gap-4 items-center justify-center py-4">
             <div className="text-4xl">RATE US!</div>
-            {/* <div className="5-star flex gap-4 justify-between max-mobile:gap-3">
-              <span
-                className="cursor-pointer h-16 w-16 bg-gray-300 star max-mobile:h-12 max-mobile:w-12"
-                onClick={handleRating}
-                ref={star1}
-                id={1}
-              ></span>
-              <span
-                className="cursor-pointer h-16 w-16 bg-gray-300 star max-mobile:h-12 max-mobile:w-12"
-                onClick={handleRating}
-                ref={star2}
-                id={2}
-              ></span>
-              <span
-                className="cursor-pointer h-16 w-16 bg-gray-300 star max-mobile:h-12 max-mobile:w-12"
-                onClick={handleRating}
-                ref={star3}
-                id={3}
-              ></span>
-              <span
-                className="cursor-pointer h-16 w-16 bg-gray-300 star max-mobile:h-12 max-mobile:w-12"
-                onClick={handleRating}
-                ref={star4}
-                id={4}
-              ></span>
-              <span
-                className="cursor-pointer h-16 w-16 bg-gray-300 star max-mobile:h-12 max-mobile:w-12"
-                onClick={handleRating}
-                ref={star5}
-                id={5}
-              ></span>
-            </div> */}
             <Stack spacing={1}>
               <Rating
                 name="half-rating"
                 defaultValue={0}
+                value={value}
                 precision={0.5}
                 size="large"
                 style={{ scale: "1.5" }}
                 onChange={(e, newValue) => {
                   console.log(newValue, e.target.value);
-
+                  setValue(newValue);
                   if (newValue === 0 || !newValue) {
                     return false;
                   }
@@ -408,6 +365,7 @@ const Page = () => {
           <div className="flex gap-1 items-center text-red-500 text-center">
             {error.error === "rate" && error.message}
           </div>
+        <Toaster />
           <Button
             className="bg-blue-500 laptop:py-6 laptop:text-xl hover:bg-blue-600 duration-100"
             onClick={handleSubmit}

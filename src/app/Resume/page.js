@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import resume from "@/app/assets/resume.jpg";
+import resume from "@/app/assets/Picture1.png";
 import Image from "next/image";
 import { TbDownload } from "react-icons/tb";
 import { Button } from "@/components/ui/button"
@@ -20,7 +20,7 @@ const Page = () => {
           </span>
         </a>
       </div>
-      <Image src={resume} alt="resume" height={1100} width={1100} />
+      <Image src={resume} alt="resume" height={900} width={900} className="bg-white p-4 px-8"/>
       <div className="download">
         <a
           href="Abdul_Hadi_Resume_fullStack.pdf"
