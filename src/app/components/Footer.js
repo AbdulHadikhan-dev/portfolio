@@ -27,10 +27,10 @@ const Footer = () => {
           <Link href={"https://github.com/AbdulHadikhan-dev"}>
             <FaGithub className="h-6 w-6 hover:text-blue cursor-pointer hover:scale-110 duration-200 max-mobile:scale-75" />
           </Link>
-          <Link href={""}>
+          <Link href={"https://www.facebook.com/profile.php?id=100053919496314"}>
             <FaFacebook className="h-6 w-6 hover:text-blue cursor-pointer hover:scale-110 duration-200 max-mobile:scale-75" />
           </Link>
-          <Link href={""}>
+          <Link href={"https://www.instagram.com/hadi_khan_offical/"}>
             <FaSquareInstagram className="h-6 w-6 hover:text-blue cursor-pointer hover:scale-110 duration-200 max-mobile:scale-75" />
           </Link>
         </div>
